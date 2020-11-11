@@ -1,0 +1,9 @@
+D:\Visual Studio Projects\skinet\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+D:\Visual Studio Projects\skinet\Core\bin\Debug\netcoreapp3.1\Core.dll
+D:\Visual Studio Projects\skinet\Core\bin\Debug\netcoreapp3.1\Core.pdb
+D:\Visual Studio Projects\skinet\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
+D:\Visual Studio Projects\skinet\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+D:\Visual Studio Projects\skinet\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+D:\Visual Studio Projects\skinet\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\skinet\Core\obj\Debug\netcoreapp3.1\Core.dll
+D:\Visual Studio Projects\skinet\Core\obj\Debug\netcoreapp3.1\Core.pdb
