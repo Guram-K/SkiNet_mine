@@ -13,17 +13,17 @@ namespace API.Controllers
     [ApiController]
     public class ProductTypesController : ControllerBase
     {
-        private readonly IProductTypeRepository _repo;
+        private readonly IGenericRepository<ProductType> _typeRepo;
 
-        public ProductTypesController(IProductTypeRepository repo)
+        public ProductTypesController(IGenericRepository<ProductType> typeRepo)
         {
-            _repo = repo;
+            _typeRepo = typeRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
         {
-            var result = await _repo.GetProductTypesAsync();
+            var result = await _typeRepo.GetAllAsync();
 
             return Ok(result);
         }

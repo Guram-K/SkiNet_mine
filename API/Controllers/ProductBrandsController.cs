@@ -13,17 +13,17 @@ namespace API.Controllers
     [ApiController]
     public class ProductBrandsController : ControllerBase
     {
-        private readonly IProductBrandRepository _repo;
+        private readonly IGenericRepository<ProductBrand> _brandRepo;
 
-        public ProductBrandsController(IProductBrandRepository repo)
+        public ProductBrandsController(IGenericRepository<ProductBrand> brandRepo)
         {
-            _repo = repo;
+            _brandRepo = brandRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetBrands()
         {
-            var results = await _repo.GetProductBrandsAsync();
+            var results = await _brandRepo.GetAllAsync();
             
             return Ok(results);
         }

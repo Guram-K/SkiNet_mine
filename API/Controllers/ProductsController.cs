@@ -1,8 +1,7 @@
 ﻿using Core.Abstraction;
 using Core.Models;
-using Infrastructure.Data;
+using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,17 +11,19 @@ namespace API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _repo;
+        private readonly IGenericRepository<Product> _productRepo;
 
-        public ProductsController(IProductRepository repo)
+        public ProductsController(IGenericRepository<Product> productRepo)
         {
-            _repo = repo;
+            _productRepo = productRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts()
         {
-            var products = await _repo.GetProductsAsync();
+            var spec = new ProductSpecification();
+
+            var products = await _productRepo.ListAsync(spec);
 
             return Ok(products);
         }
@@ -30,7 +31,9 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return await _repo.GetProductByIdAsync(id);
+            var spec = new ProductSpecification(id);
+
+            return await _productRepo.GetEntityWithSpec(spec);
         }
     }
 }

@@ -25,9 +25,8 @@ namespace API
             services.AddDbContext<ApplicationDbContext>(x => 
                    x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IProductBrandRepository, ProductBrandRepository>();
-            services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
