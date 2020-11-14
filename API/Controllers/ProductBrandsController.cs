@@ -9,9 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductBrandsController : ControllerBase
+    public class ProductBrandsController : ApiBaseController
     {
         private readonly IGenericRepository<ProductBrand> _brandRepo;
 
