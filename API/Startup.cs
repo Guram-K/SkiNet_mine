@@ -1,3 +1,5 @@
+using API.Helpers;
+using AutoMapper;
 using Core.Abstraction;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
@@ -24,6 +26,7 @@ namespace API
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(x => 
                    x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddAutoMapper(typeof(MappingProfiles));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
@@ -40,6 +43,8 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
