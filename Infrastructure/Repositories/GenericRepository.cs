@@ -19,6 +19,7 @@ namespace Infrastructure.Repositories
         {
             _dbContext = dbContext;
         }
+
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _dbContext.Set<T>().ToListAsync();
@@ -37,6 +38,11 @@ namespace Infrastructure.Repositories
         public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
+        }
+
+        public async Task<int> CountAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
         }
 
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
