@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace API.Helpers
 {
-    public class ProductUrlResolver : IValueResolver<Product, ProductReadDto, string>
+    public class ProductUrlResolver : IValueResolver<Product, ProductReturnDto, string>
     {
         private readonly IConfiguration _config;
 
@@ -18,7 +18,7 @@ namespace API.Helpers
             _config = config;
         }
 
-        public string Resolve(Product source, ProductReadDto destination, string destMember, ResolutionContext context)
+        public string Resolve(Product source, ProductReturnDto destination, string destMember, ResolutionContext context)
         {
             if (!string.IsNullOrEmpty(source.PictureUrl))
             {
